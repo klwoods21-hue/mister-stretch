@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mister Stretch — one-on-one assisted stretching and personal training. Move better, recover faster, reach further.">
+<meta name="theme-color" content="#0E1017">
+<meta property="og:title" content="Mister Stretch — Assisted Stretching & Personal Training">
+<meta property="og:description" content="One-on-one assisted stretching and personal training. Move better, recover faster, reach further.">
+<meta property="og:type" content="website">
+<title>Mister Stretch — Assisted Stretching & Personal Training</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --ink:        #0E1017;
+    --ink-2:      #141724;
+    --surface:    #1A1E2E;
+    --surface-2:  #222740;
+    --line:       #2C3350;
+    --heat:       #FF6A45;
+    --heat-soft:  #FF8A6B;
+    --ice:        #57E0D2;
+    --ice-soft:   #8CEDE3;
+    --text:       #F0EDE7;
+    --muted:      #9AA0B4;
+    --muted-2:    #6C7290;
+    --maxw: 1180px;
+    --r: 14px;
+    --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --shadow: 0 24px 60px -20px rgba(0,0,0,.7);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--ink); color: var(--text); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(1.1rem, 4vw, 2.4rem); }
+  .eyebrow { font-size: .74rem; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; color: var(--ice); margin: 0; }
+  .eyebrow.heat { color: var(--heat-soft); }
+  h1, h2, h3 { text-wrap: balance; margin: 0; font-weight: 800; letter-spacing: -.02em; line-height: .98; }
+  .display { font-size: clamp(3.2rem, 12vw, 8.5rem); font-weight: 800; letter-spacing: -.04em; line-height: .88; text-transform: uppercase; }
+  h2.section-title { font-size: clamp(2rem, 5.5vw, 3.6rem); text-transform: uppercase; letter-spacing: -.03em; }
+  p.lead { font-size: clamp(1.05rem, 2vw, 1.28rem); color: var(--muted); max-width: 54ch; }
+  a { color: inherit; text-decoration: none; }
+  .btn { display: inline-flex; align-items: center; gap: .6em; cursor: pointer; font-family: inherit; font-weight: 700; font-size: .95rem; letter-spacing: .02em; padding: .95em 1.6em; border-radius: 100px; border: 1px solid transparent; transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s, background .2s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-heat { background: linear-gradient(120deg, var(--heat), var(--heat-soft)); color: #22110b; box-shadow: 0 12px 30px -10px rgba(255,106,69,.6); }
+  .btn-heat:hover { box-shadow: 0 18px 40px -10px rgba(255,106,69,.75); }
+  .btn-ghost { border-color: var(--line); color: var(--text); background: rgba(255,255,255,.02); }
+  .btn-ghost:hover { border-color: var(--ice); color: var(--ice); }
+  .btn .arrow { transition: transform .25s; }
+  .btn:hover .arrow { transform: translateX(4px); }
+  header.nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(14px); background: color-mix(in srgb, var(--ink) 80%, transparent); border-bottom: 1px solid transparent; transition: border-color .3s, background .3s; }
+  header.nav.scrolled { border-color: var(--line); }
+  .nav-in { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+  .brand { display: flex; align-items: center; gap: .6rem; font-weight: 800; letter-spacing: -.02em; font-size: 1.15rem; text-transform: uppercase; }
+  .brand .mark { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--heat), var(--ice)); color: var(--ink); font-size: 1rem; font-weight: 900; }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a { font-size: .9rem; color: var(--muted); font-weight: 600; transition: color .2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta { display: flex; align-items: center; gap: 1rem; }
+  @media (max-width: 860px) { .nav-links { display: none; } }
+  .hero { position: relative; padding: clamp(3rem, 9vw, 7rem) 0 clamp(2.5rem,6vw,5rem); overflow: hidden; }
+  #bands { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: .5; }
+  .hero .wrap { position: relative; z-index: 2; }
+  .hero-grid { display: grid; gap: clamp(1.5rem, 4vw, 3rem); }
+  .hero h1 span.stretchword { display: inline-block; color: transparent; background: linear-gradient(100deg, var(--heat) 10%, var(--ice) 90%); -webkit-background-clip: text; background-clip: text; }
+  .hero .lead { margin-top: 1.6rem; }
+  .hero-actions { display: flex; gap: 1rem; margin-top: 2.2rem; flex-wrap: wrap; }
+  .hero-meta { display: flex; gap: 2.4rem; margin-top: 3rem; flex-wrap: wrap; }
+  .hero-meta .stat .n { font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 800; letter-spacing: -.03em; }
+  .hero-meta .stat .n .u { color: var(--heat); }
+  .hero-meta .stat .l { font-size: .78rem; text-transform: uppercase; letter-spacing: .16em; color: var(--muted-2); }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+  .marquee { border-block: 1px solid var(--line); background: var(--ink-2); overflow: hidden; padding: .9rem 0; }
+  .marquee-track { display: flex; gap: 3rem; width: max-content; animation: slide 30s linear infinite; }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; flex-wrap: wrap; } }
+  .marquee-track span { font-size: .82rem; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); white-space: nowrap; display: inline-flex; align-items: center; gap: 3rem; }
+  .marquee-track span::before { content: "✦"; color: var(--heat); }
+  @keyframes slide { to { transform: translateX(-50%); } }
+  section { padding: clamp(4rem, 9vw, 7.5rem) 0; }
+  .section-head { max-width: 60ch; margin-bottom: clamp(2rem,5vw,3.4rem); }
+  .section-head .eyebrow { margin-bottom: 1rem; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.1rem; }
+  .card { position: relative; padding: 1.8rem; border-radius: var(--r); background: linear-gradient(180deg, var(--surface), var(--ink-2)); border: 1px solid var(--line); overflow: hidden; transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .3s; }
+  .card:hover { transform: translateY(-6px); border-color: color-mix(in srgb, var(--heat) 50%, var(--line)); }
+  .card .idx { font-size: .78rem; letter-spacing: .2em; color: var(--muted-2); }
+  .card h3 { font-size: 1.5rem; margin: 1.1rem 0 .6rem; text-transform: uppercase; letter-spacing: -.01em; }
+  .card p { color: var(--muted); font-size: .96rem; margin: 0 0 1.3rem; }
+  .card .tag { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ice); font-weight: 700; }
+  .card .glow { position: absolute; inset: auto -40% -60% auto; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--heat) 40%, transparent), transparent 70%); opacity: 0; transition: opacity .4s; pointer-events: none; }
+  .card:hover .glow { opacity: 1; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.4rem; counter-reset: s; }
+  .step { padding: 1.6rem 0; border-top: 2px solid var(--line); position: relative; }
+  .step::before { counter-increment: s; content: "0" counter(s); font-size: clamp(2.4rem,5vw,3.4rem); font-weight: 800; letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1.5px var(--muted-2); display: block; margin-bottom: .8rem; }
+  .step.active::before { -webkit-text-stroke: 1.5px var(--heat); }
+  .step h3 { font-size: 1.35rem; text-transform: uppercase; margin-bottom: .5rem; }
+  .step p { color: var(--muted); font-size: .95rem; margin: 0; }
+  .benefits-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem,5vw,4rem); align-items: center; }
+  @media (max-width: 820px) { .benefits-grid { grid-template-columns: 1fr; } }
+  .benefit-list { display: grid; gap: 1.1rem; }
+  .benefit { display: flex; gap: 1rem; align-items: flex-start; padding-bottom: 1.1rem; border-bottom: 1px solid var(--line); }
+  .benefit .dot { width: 10px; height: 10px; border-radius: 50%; margin-top: .5rem; flex: 0 0 auto; background: linear-gradient(135deg, var(--heat), var(--ice)); }
+  .benefit h4 { margin: 0 0 .2rem; font-size: 1.05rem; }
+  .benefit p { margin: 0; color: var(--muted); font-size: .92rem; }
+  .rom { background: linear-gradient(180deg, var(--surface), var(--ink-2)); border: 1px solid var(--line); border-radius: var(--r); padding: 1.8rem; box-shadow: var(--shadow); }
+  .rom .rom-t { font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+  .rom-row { margin-top: 1.4rem; }
+  .rom-row .rl { display: flex; justify-content: space-between; font-size: .88rem; margin-bottom: .5rem; }
+  .rom-row .rl b { font-variant-numeric: tabular-nums; }
+  .bar { height: 12px; border-radius: 100px; background: var(--surface-2); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; border-radius: 100px; background: linear-gradient(90deg, var(--heat), var(--ice)); transition: width 1.4s cubic-bezier(.2,.8,.2,1); }
+  .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.2rem; align-items: stretch; }
+  .plan { display: flex; flex-direction: column; padding: 1.9rem; border-radius: var(--r); background: var(--ink-2); border: 1px solid var(--line); }
+  .plan.featured { border-color: var(--heat); background: linear-gradient(180deg, color-mix(in srgb, var(--heat) 10%, var(--surface)), var(--ink-2)); position: relative; }
+  .plan.featured .badge { position: absolute; top: -12px; left: 1.9rem; background: var(--heat); color: #22110b; font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; padding: .35em .8em; border-radius: 100px; }
+  .plan .pname { font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+  .plan .price { font-size: clamp(2.4rem,5vw,3rem); font-weight: 800; letter-spacing: -.03em; margin: .6rem 0 .2rem; }
+  .plan .price .per { font-size: .95rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+  .plan ul { list-style: none; padding: 0; margin: 1.3rem 0 1.8rem; display: grid; gap: .7rem; }
+  .plan li { font-size: .92rem; color: var(--muted); display: flex; gap: .6rem; }
+  .plan li::before { content: "→"; color: var(--ice); }
+  .plan .btn { margin-top: auto; justify-content: center; }
+  .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem,5vw,4rem); align-items: center; }
+  @media (max-width: 820px) { .about { grid-template-columns: 1fr; } }
+  .portrait { aspect-ratio: 4/5; border-radius: var(--r); border: 1px solid var(--line); position: relative; overflow: hidden; background: radial-gradient(120% 90% at 30% 10%, color-mix(in srgb, var(--ice) 35%, transparent), transparent 60%), radial-gradient(120% 90% at 90% 100%, color-mix(in srgb, var(--heat) 45%, transparent), transparent 55%), var(--surface); display: grid; place-items: center; }
+  .portrait .mono { font-size: clamp(4rem,12vw,7rem); font-weight: 800; letter-spacing: -.05em; color: color-mix(in srgb, var(--text) 22%, transparent); }
+  .portrait .note { position: absolute; bottom: 1rem; left: 1rem; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted-2); }
+  .about h2 { margin-bottom: 1.2rem; }
+  .about .creds { display: flex; gap: 1.6rem; margin-top: 1.6rem; flex-wrap: wrap; }
+  .about .creds div .n { font-weight: 800; font-size: 1.3rem; }
+  .about .creds div .l { font-size: .76rem; text-transform: uppercase; letter-spacing: .14em; color: var(--muted-2); }
+  .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.2rem; }
+  .quote { padding: 1.8rem; border-radius: var(--r); background: var(--ink-2); border: 1px solid var(--line); }
+  .quote .stars { color: var(--heat); letter-spacing: .2em; font-size: .9rem; }
+  .quote p { font-size: 1.05rem; margin: 1rem 0 1.4rem; }
+  .quote .who { font-size: .85rem; color: var(--muted); }
+  .quote .who b { color: var(--text); }
+  .faq { display: grid; gap: 0; max-width: 820px; }
+  details.q { border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
+  details.q summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; font-weight: 700; font-size: 1.1rem; }
+  details.q summary::-webkit-details-marker { display: none; }
+  details.q summary .pm { color: var(--heat); transition: transform .3s; font-weight: 400; }
+  details.q[open] summary .pm { transform: rotate(45deg); }
+  details.q p { color: var(--muted); margin: .9rem 0 0; font-size: .96rem; }
+  .cta { border-radius: 24px; padding: clamp(2.4rem,6vw,4.5rem); margin-block: 2rem; background: radial-gradient(120% 140% at 0% 0%, color-mix(in srgb, var(--heat) 24%, transparent), transparent 55%), radial-gradient(120% 140% at 100% 100%, color-mix(in srgb, var(--ice) 24%, transparent), transparent 55%), var(--surface); border: 1px solid var(--line); text-align: center; }
+  .cta h2 { margin-bottom: 1rem; }
+  .cta p { color: var(--muted); max-width: 46ch; margin-inline: auto; }
+  .cta .hero-actions { justify-content: center; }
+  .contact-info { display: flex; gap: 2.4rem; justify-content: center; flex-wrap: wrap; margin-top: 2.4rem; }
+  .contact-info div .l { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted-2); }
+  .contact-info div .v { font-weight: 700; }
+  footer.ft { border-top: 1px solid var(--line); padding: 3rem 0; }
+  .ft-in { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; align-items: center; }
+  .ft-in .muted { color: var(--muted-2); font-size: .85rem; }
+  .ft-links { display: flex; gap: 1.4rem; }
+  .ft-links a { color: var(--muted); font-size: .85rem; }
+  .ft-links a:hover { color: var(--ice); }
+  .note-banner { background: var(--ink-2); border: 1px dashed var(--line); border-radius: 10px; padding: .7rem 1rem; font-size: .8rem; color: var(--muted-2); text-align: center; margin-top: 1.5rem; }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><span class="mark">M</span> Mister&nbsp;Stretch</a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Membership</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-heat" href="#book">Book a stretch <span class="arrow">→</span></a>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <canvas id="bands"></canvas>
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <p class="eyebrow">Assisted Stretch · Mobility · Personal Training</p>
+      <h1 class="display" style="margin-top:1.4rem">Reach<br><span class="stretchword">further.</span></h1>
+      <p class="lead">One-on-one assisted stretching and personal training built around your body — so you move better, recover faster, and train without breaking down. Meet Mister Stretch.</p>
+      <div class="hero-actions">
+        <a class="btn btn-heat" href="#book">Book your first session <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#services">Explore services</a>
+      </div>
+      <div class="hero-meta">
+        <div class="stat"><div class="n">2<span class="u">×</span></div><div class="l">Range of motion</div></div>
+        <div class="stat"><div class="n">25<span class="u">/</span>50</div><div class="l">Minute sessions</div></div>
+        <div class="stat"><div class="n">1<span class="u">:</span>1</div><div class="l">Every session</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Flexibility</span><span>Mobility</span><span>Recovery</span><span>Strength</span><span>Injury Prevention</span><span>Performance</span>
+    <span>Flexibility</span><span>Mobility</span><span>Recovery</span><span>Strength</span><span>Injury Prevention</span><span>Performance</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow heat">What we do</p>
+      <h2 class="section-title">Trained hands.<br>Real range of motion.</h2>
+      <p class="lead" style="margin-top:1rem">Four ways to move better — mix and match into a plan that fits your body and your goals.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal"><span class="glow"></span>
+        <div class="idx">01</div>
+        <h3>Assisted Stretching</h3>
+        <p>Practitioner-guided, one-on-one flexibility work. You relax, we do the reaching — unlocking range you can't hit on your own.</p>
+        <span class="tag">25 &amp; 50 min</span>
+      </article>
+      <article class="card reveal"><span class="glow"></span>
+        <div class="idx">02</div>
+        <h3>Personal Training</h3>
+        <p>Strength and conditioning programmed around your body, your goals, and the range we build in your stretch sessions.</p>
+        <span class="tag">1-on-1 · small group</span>
+      </article>
+      <article class="card reveal"><span class="glow"></span>
+        <div class="idx">03</div>
+        <h3>Mobility &amp; Recovery</h3>
+        <p>Foam rolling, soft-tissue work, and prehab drills that keep you loose between sessions and injury-proof for the long haul.</p>
+        <span class="tag">Recovery focused</span>
+      </article>
+      <article class="card reveal"><span class="glow"></span>
+        <div class="idx">04</div>
+        <h3>Assessments &amp; Programs</h3>
+        <p>A full flexibility &amp; movement assessment, scored and tracked, turned into a multi-week program with clear milestones.</p>
+        <span class="tag">Data-driven plans</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background:var(--ink-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The method</p>
+      <h2 class="section-title">Assess. Stretch. Recover.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal active">
+        <h3>Assess</h3>
+        <p>We measure your range of motion, spot imbalances, and set a baseline — so every session has a target, not a guess.</p>
+      </div>
+      <div class="step reveal">
+        <h3>Stretch &amp; Train</h3>
+        <p>Hands-on assisted stretching plus targeted strength work opens new range and teaches your body to own it.</p>
+      </div>
+      <div class="step reveal">
+        <h3>Recover</h3>
+        <p>Mobility drills and recovery work lock in the gains, reduce soreness, and keep you moving between visits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="benefits">
+  <div class="wrap benefits-grid">
+    <div class="reveal">
+      <p class="eyebrow heat">Why it works</p>
+      <h2 class="section-title" style="margin:1rem 0 1.6rem">Your body, unlocked.</h2>
+      <div class="benefit-list">
+        <div class="benefit"><span class="dot"></span><div><h4>More range, less pain</h4><p>Open tight hips, shoulders, and hamstrings that hold you back day to day.</p></div></div>
+        <div class="benefit"><span class="dot"></span><div><h4>Fewer injuries</h4><p>Better mobility means fewer tweaks, pulls, and setbacks in training and life.</p></div></div>
+        <div class="benefit"><span class="dot"></span><div><h4>Faster recovery</h4><p>Improved circulation and tissue quality get you back to full strength sooner.</p></div></div>
+        <div class="benefit"><span class="dot" style="border-bottom:none"></span><div><h4>Real performance gains</h4><p>Full range of motion is where power, speed, and strength actually live.</p></div></div>
+      </div>
+    </div>
+    <div class="rom reveal">
+      <div class="rom-t">Sample 8-week progress</div>
+      <div class="rom-row"><div class="rl"><span>Hip flexion</span><b>+38%</b></div><div class="bar"><i data-w="82%"></i></div></div>
+      <div class="rom-row"><div class="rl"><span>Shoulder mobility</span><b>+41%</b></div><div class="bar"><i data-w="88%"></i></div></div>
+      <div class="rom-row"><div class="rl"><span>Hamstring reach</span><b>+29%</b></div><div class="bar"><i data-w="71%"></i></div></div>
+      <div class="rom-row"><div class="rl"><span>Ankle dorsiflexion</span><b>+24%</b></div><div class="bar"><i data-w="64%"></i></div></div>
+      <div class="note-banner">Illustrative sample — real numbers come from your assessment.</div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="background:var(--ink-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Membership</p>
+      <h2 class="section-title">Show up. Stay loose.</h2>
+      <p class="lead" style="margin-top:1rem">Simple monthly plans. Cancel or pause anytime. Pricing shown is placeholder — set your real rates before launch.</p>
+    </div>
+    <div class="pricing">
+      <div class="plan reveal">
+        <div class="pname">Drop-In</div>
+        <div class="price">$45<span class="per">/session</span></div>
+        <ul>
+          <li>Single 25-min assisted stretch</li>
+          <li>No commitment</li>
+          <li>Great first taste</li>
+        </ul>
+        <a class="btn btn-ghost" href="#book">Book one</a>
+      </div>
+      <div class="plan featured reveal">
+        <span class="badge">Most popular</span>
+        <div class="pname">Momentum</div>
+        <div class="price">$249<span class="per">/month</span></div>
+        <ul>
+          <li>4 × 50-min sessions monthly</li>
+          <li>Movement assessment included</li>
+          <li>Personalized mobility program</li>
+          <li>Member pricing on training</li>
+        </ul>
+        <a class="btn btn-heat" href="#book">Start momentum <span class="arrow">→</span></a>
+      </div>
+      <div class="plan reveal">
+        <div class="pname">Elite</div>
+        <div class="price">$449<span class="per">/month</span></div>
+        <ul>
+          <li>8 × 50-min sessions monthly</li>
+          <li>Stretch + personal training mix</li>
+          <li>Priority scheduling</li>
+          <li>Quarterly re-assessment</li>
+        </ul>
+        <a class="btn btn-ghost" href="#book">Go elite</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="portrait reveal">
+      <div class="mono">D</div>
+      <div class="note">Photo of Deveon goes here</div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow heat">Meet your practitioner</p>
+      <h2 class="section-title">Deveon —<br>the Mister in Mister Stretch.</h2>
+      <p class="lead" style="margin-top:1.2rem">Deveon is a certified flexologist and personal trainer who believes recovery and range of motion are the foundation everything else is built on. His approach blends hands-on assisted stretching with smart, progressive training — meeting you exactly where your body is and taking it further.</p>
+      <div class="creds">
+        <div><div class="n">Certified</div><div class="l">Flexologist</div></div>
+        <div><div class="n">NASM</div><div class="l">Personal Trainer</div></div>
+        <div><div class="n">100s</div><div class="l">Sessions delivered</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="results" style="background:var(--ink-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Results</p>
+      <h2 class="section-title">People who reach further.</h2>
+    </div>
+    <div class="quotes">
+      <figure class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p>“I touched my toes for the first time in a decade. My back pain is basically gone.”</p>
+        <figcaption class="who"><b>Marcus T.</b> · Weekend runner</figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p>“Deveon found the tightness I didn't even know was slowing my lifts down. Game changer.”</p>
+        <figcaption class="who"><b>Priya R.</b> · CrossFit athlete</figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p>“50 minutes on the table feels like a full reset. I book my whole month in advance now.”</p>
+        <figcaption class="who"><b>Jordan L.</b> · Desk-bound &amp; recovering</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow heat">Good to know</p>
+      <h2 class="section-title">Questions, answered.</h2>
+    </div>
+    <div class="faq reveal">
+      <details class="q" open><summary>Do I need to be flexible already? <span class="pm">+</span></summary><p>Not at all — the opposite. The tighter you are, the more you'll feel and see. We meet your body where it is and build from there.</p></details>
+      <details class="q"><summary>What do I wear? <span class="pm">+</span></summary><p>Comfortable athletic clothing you can move in — the same thing you'd wear to the gym. No special gear needed.</p></details>
+      <details class="q"><summary>What actually happens in a session? <span class="pm">+</span></summary><p>You lie on a padded table while Deveon guides your body through targeted stretches you can't reach on your own, using leverage and hands-on cues. It's active, relaxing, and completely one-on-one.</p></details>
+      <details class="q"><summary>How often should I come in? <span class="pm">+</span></summary><p>Most members see the best results with 1–2 sessions per week, paired with a simple at-home mobility routine we build for you.</p></details>
+      <details class="q"><summary>Is this like a massage? <span class="pm">+</span></summary><p>Related, but different. Massage works your tissue while you're passive; assisted stretching actively moves your joints through range to build lasting mobility — not just temporary relief.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap">
+    <div class="cta reveal">
+      <p class="eyebrow heat">Ready when you are</p>
+      <h2 class="section-title" style="margin-top:1rem">Your first stretch is on the table.</h2>
+      <p>Book an intro session, get assessed, and feel the difference the same day. Let's find your range.</p>
+      <div class="hero-actions">
+        <a class="btn btn-heat" href="#top">Book your session <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#pricing">See membership</a>
+      </div>
+      <div class="contact-info">
+        <div><div class="l">Location</div><div class="v">Your studio address</div></div>
+        <div><div class="l">Hours</div><div class="v">Mon–Sat · 7a–8p</div></div>
+        <div><div class="l">Get in touch</div><div class="v">hello@misterstretch.com</div></div>
+      </div>
+      <div class="note-banner">Booking buttons are placeholders — wired to one spot so we can drop in real scheduling next.</div>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <a class="brand" href="#top"><span class="mark">M</span> Mister&nbsp;Stretch</a>
+    <div class="ft-links">
+      <a href="#services">Services</a>
+      <a href="#pricing">Membership</a>
+      <a href="#about">About</a>
+      <a href="#book">Book</a>
+    </div>
+    <div class="muted">© 2026 Mister Stretch. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  onScroll(); addEventListener('scroll', onScroll, { passive: true });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const barIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.bar i').forEach((b, idx) => {
+          setTimeout(() => { b.style.width = b.dataset.w; }, 180 * idx);
+        });
+        barIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.rom').forEach(el => barIO.observe(el));
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const c = document.getElementById('bands');
+  const ctx = c.getContext('2d');
+  let W, H, t = 0, raf;
+  function resize() {
+    const r = c.getBoundingClientRect();
+    W = c.width = r.width * devicePixelRatio;
+    H = c.height = r.height * devicePixelRatio;
+  }
+  resize(); addEventListener('resize', resize);
+  const bands = 7;
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    for (let b = 0; b < bands; b++) {
+      const yBase = (H / (bands + 1)) * (b + 1);
+      ctx.beginPath();
+      for (let x = 0; x <= W; x += 14 * devicePixelRatio) {
+        const stretch = Math.sin(x / W * Math.PI);
+        const amp = (28 + b * 6) * devicePixelRatio * stretch;
+        const y = yBase + Math.sin(x / W * 6 + t + b) * amp;
+        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      const col = b < bands / 2 ? '255,106,69' : '87,224,210';
+      ctx.strokeStyle = `rgba(${col},${0.10 + 0.05 * Math.sin(t + b)})`;
+      ctx.lineWidth = 1.5 * devicePixelRatio;
+      ctx.stroke();
+    }
+    t += 0.006;
+    if (!reduce) raf = requestAnimationFrame(draw);
+  }
+  draw();
+</script>
+</body>
+</html>
