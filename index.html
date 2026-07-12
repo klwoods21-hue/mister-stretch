@@ -101,10 +101,14 @@
   .card:hover { transform: translateY(-6px); border-color: color-mix(in srgb, var(--flame) 55%, var(--line)); }
   .card .idx { font-size: .78rem; letter-spacing: .2em; color: var(--muted-2); }
   .card h3 { font-size: 1.5rem; margin: 1.1rem 0 .6rem; text-transform: uppercase; letter-spacing: -.01em; }
+  .card.bcard h3 { margin-top: 0; font-size: 1.3rem; }
   .card p { color: var(--muted); font-size: .96rem; margin: 0 0 1.3rem; }
+  .card.bcard p { margin-bottom: 0; }
   .card .tag { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--flame-soft); font-weight: 700; }
   .card .glow { position: absolute; inset: auto -40% -60% auto; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--flame) 45%, transparent), transparent 70%); opacity: 0; transition: opacity .4s; pointer-events: none; }
   .card:hover .glow { opacity: 1; }
+  .card .bicon { width: 34px; height: 34px; display: block; }
+  .card .bicon path, .card .bicon circle, .card .bicon line { stroke: var(--flame); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
   .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.4rem; counter-reset: s; }
   .step { padding: 1.6rem 0; border-top: 2px solid var(--line); position: relative; }
@@ -125,13 +129,6 @@
   @media (max-width: 860px) { .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; } .g-wide { grid-column: span 2; } }
   @media (max-width: 520px) { .gallery { grid-auto-rows: 160px; } .g-tall { grid-row: span 1; } .g-wide { grid-column: span 2; } }
 
-  .benefits-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem,5vw,4rem); align-items: center; }
-  @media (max-width: 820px) { .benefits-grid { grid-template-columns: 1fr; } }
-  .benefit-list { display: grid; gap: 1.1rem; }
-  .benefit { display: flex; gap: 1rem; align-items: flex-start; padding-bottom: 1.1rem; border-bottom: 1px solid var(--line); }
-  .benefit .dot { width: 10px; height: 10px; border-radius: 50%; margin-top: .5rem; flex: 0 0 auto; background: linear-gradient(135deg, var(--flame), var(--ember)); }
-  .benefit h4 { margin: 0 0 .2rem; font-size: 1.05rem; }
-  .benefit p { margin: 0; color: var(--muted); font-size: .92rem; }
   .rom { background: linear-gradient(180deg, var(--surface), var(--ink-2)); border: 1px solid var(--line); border-radius: var(--r); padding: 1.8rem; box-shadow: var(--shadow); }
   .rom .rom-t { font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
   .rom-row { margin-top: 1.4rem; }
@@ -213,9 +210,9 @@
     </a>
     <nav class="nav-links">
       <a href="#services">Services</a>
+      <a href="#benefits">Benefits</a>
       <a href="#anywhere">Ways to Train</a>
       <a href="#pricing">Pricing</a>
-      <a href="#gallery">Gallery</a>
       <a href="#about">About</a>
     </nav>
     <div class="nav-cta">
@@ -292,7 +289,57 @@
   </div>
 </section>
 
-<section id="anywhere">
+<section id="benefits">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Benefits</p>
+      <h2 class="section-title">What stretching does for you.</h2>
+      <p class="lead" style="margin-top:1rem">People come to Mr. Stretch for all kinds of reasons — sharper performance, less joint pain, or simply a great stretch. Whatever your body needs, the payoff of expert-led assisted stretching is real, and it shows up fast.</p>
+    </div>
+    <div class="cards">
+      <article class="card bcard reveal"><span class="glow"></span>
+        <svg class="bicon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.4"/><path d="M12 8v6M12 14l-3 5M12 14l3 5M8 10.5h8"/></svg>
+        <h3>Improve Posture</h3>
+        <p>Targeted, expert-guided stretching unwinds the tight spots that pull you out of line — so you stand taller, sit straighter, and carry less strain through the day.</p>
+      </article>
+      <article class="card bcard reveal"><span class="glow"></span>
+        <svg class="bicon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-7-9a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 4.5-7 9-7 9z"/></svg>
+        <h3>Reduce Stress</h3>
+        <p>Stretching works on your mind as much as your body. Deeper circulation and slow, intentional movement calm the nervous system — leaving you clearer, looser, and more energized.</p>
+      </article>
+      <article class="card bcard reveal"><span class="glow"></span>
+        <svg class="bicon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14l4-1 3-6 3 9 2-4h4"/></svg>
+        <h3>Improve Sports Performance</h3>
+        <p>Consistent assisted stretching builds the mobility athletes live on — more power through full range, quicker reactions, and faster recovery between efforts.</p>
+      </article>
+      <article class="card bcard reveal"><span class="glow"></span>
+        <svg class="bicon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M3 12l3-3M3 12l3 3M21 12l-3-3M21 12l-3 3"/></svg>
+        <h3>Increase Range of Motion</h3>
+        <p>Regular sessions open your joints and lengthen tight muscle over time — making everyday movement easier and cutting your risk of strain.</p>
+      </article>
+      <article class="card bcard reveal"><span class="glow"></span>
+        <svg class="bicon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V7a3 3 0 0 1 6 0v2M9 9c4 0 7 2 7 5.5S13 20 9 20"/><path d="M4.5 13.5h4M4.5 16.5h4"/></svg>
+        <h3>Reduce Muscle &amp; Joint Pain</h3>
+        <p>Hands-on stretching releases built-up tension, eases sore muscles and stiff joints, and helps stop everyday aches and injuries before they start.</p>
+      </article>
+      <article class="card bcard reveal"><span class="glow"></span>
+        <svg class="bicon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v4h-4"/></svg>
+        <h3>Faster Recovery</h3>
+        <p>Better blood and oxygen flow flushes out fatigue and speeds tissue repair — so you bounce back quicker from training, work, and life.</p>
+      </article>
+    </div>
+    <div class="rom reveal" style="max-width:640px; margin:2.6rem auto 0">
+      <div class="rom-t">Sample 8-week progress</div>
+      <div class="rom-row"><div class="rl"><span>Hip flexion</span><b>+38%</b></div><div class="bar"><i data-w="82%"></i></div></div>
+      <div class="rom-row"><div class="rl"><span>Shoulder mobility</span><b>+41%</b></div><div class="bar"><i data-w="88%"></i></div></div>
+      <div class="rom-row"><div class="rl"><span>Hamstring reach</span><b>+29%</b></div><div class="bar"><i data-w="71%"></i></div></div>
+      <div class="rom-row"><div class="rl"><span>Ankle dorsiflexion</span><b>+24%</b></div><div class="bar"><i data-w="64%"></i></div></div>
+      <div class="note-banner">Illustrative sample — real numbers come from your assessment.</div>
+    </div>
+  </div>
+</section>
+
+<section id="anywhere" style="background:var(--ink-2)">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Ways to train</p>
@@ -322,7 +369,7 @@
   </div>
 </section>
 
-<section id="gallery" style="background:var(--ink-2)">
+<section id="gallery">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">In action</p>
@@ -358,7 +405,7 @@
   </div>
 </section>
 
-<section id="how">
+<section id="how" style="background:var(--ink-2)">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">The method</p>
@@ -377,29 +424,6 @@
         <h3>Recover</h3>
         <p>Mobility drills and recovery work lock in the gains, reduce soreness, and keep you moving between visits.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="benefits" style="background:var(--ink-2)">
-  <div class="wrap benefits-grid">
-    <div class="reveal">
-      <p class="eyebrow">Why it works</p>
-      <h2 class="section-title" style="margin:1rem 0 1.6rem">Your body, unlocked.</h2>
-      <div class="benefit-list">
-        <div class="benefit"><span class="dot"></span><div><h4>More range, less pain</h4><p>Open tight hips, shoulders, and hamstrings that hold you back day to day.</p></div></div>
-        <div class="benefit"><span class="dot"></span><div><h4>Fewer injuries</h4><p>Better mobility means fewer tweaks, pulls, and setbacks in training and life.</p></div></div>
-        <div class="benefit"><span class="dot"></span><div><h4>Faster recovery</h4><p>Improved circulation and tissue quality get you back to full strength sooner.</p></div></div>
-        <div class="benefit"><span class="dot" style="border-bottom:none"></span><div><h4>Real performance gains</h4><p>Full range of motion is where power, speed, and strength actually live.</p></div></div>
-      </div>
-    </div>
-    <div class="rom reveal">
-      <div class="rom-t">Sample 8-week progress</div>
-      <div class="rom-row"><div class="rl"><span>Hip flexion</span><b>+38%</b></div><div class="bar"><i data-w="82%"></i></div></div>
-      <div class="rom-row"><div class="rl"><span>Shoulder mobility</span><b>+41%</b></div><div class="bar"><i data-w="88%"></i></div></div>
-      <div class="rom-row"><div class="rl"><span>Hamstring reach</span><b>+29%</b></div><div class="bar"><i data-w="71%"></i></div></div>
-      <div class="rom-row"><div class="rl"><span>Ankle dorsiflexion</span><b>+24%</b></div><div class="bar"><i data-w="64%"></i></div></div>
-      <div class="note-banner">Illustrative sample — real numbers come from your assessment.</div>
     </div>
   </div>
 </section>
@@ -576,9 +600,9 @@
       <div class="ft-tag">Where better living begins</div>
     </div>
     <div class="ft-links">
+      <a href="#benefits">Benefits</a>
       <a href="#anywhere">Ways to Train</a>
       <a href="#pricing">Pricing</a>
-      <a href="tel:+18328471490">(832) 847-1490</a>
       <a href="https://www.instagram.com/mister_stretch_htx" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@misterstretch" target="_blank" rel="noopener">TikTok</a>
     </div>
